@@ -1,11 +1,8 @@
-import { Box, Typography } from "@mui/material";
+import { Box, List, Typography } from "@mui/material";
 import React, { useState } from "react";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import YouTubeIcon from "@mui/icons-material/YouTube";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import SocialMediaIcons from "../SocialMediaIcons/SocialMediaIcons";
+import "./Header.css";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const Header = () => {
@@ -14,100 +11,26 @@ const Header = () => {
     myAccount: false,
   });
 
+  const mouseEnterHandler = (name) => {
+    setToggleMsg({
+      ...toggleMsg,
+      myAccount: false,
+      myCart: false,
+      [name]: true,
+    });
+  };
+
+  const mouseLeaveHandler = () => {
+    setToggleMsg({ ...toggleMsg, myAccount: false, myCart: false });
+  };
+
   return (
-    <Box
-      sx={{
-        bgcolor: "rgb(102,102,102)",
-        display: "flex",
-        justifyContent: "space-between",
-        width: "98%",
-        alignItems: "center",
-        padding: "2% 1%",
-      }}
-    >
+    <Box className="headerMainBox">
+      {/* this is for screen above 901px */}
       {/* left Part  */}
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          width: "30%",
-          alignItems: "center",
-        }}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            columnGap: "5px",
-            alignItems: "center",
-          }}
-        >
-          <FacebookIcon
-            sx={{
-              border: "2px solid rgb(110,110,110)",
-              color: "white",
-              borderRadius: "50%",
-              padding: "1%",
-              bgcolor: "rgb(110,110,110)",
-              "&:hover": {
-                cursor: "pointer",
-                bgcolor: "rgb(30,147,6)",
-              },
-            }}
-          />
-          <TwitterIcon
-            sx={{
-              border: "2px solid rgb(110,110,110)",
-              borderRadius: "50%",
-              color: "white",
-              padding: "1%",
-              bgcolor: "rgb(110,110,110)",
-              "&:hover": {
-                cursor: "pointer",
-                bgcolor: "rgb(30,147,6)",
-              },
-            }}
-          />
-          <InstagramIcon
-            sx={{
-              border: "2px solid rgb(110,110,110)",
-              borderRadius: "50%",
-              color: "white",
-              padding: "1%",
-              bgcolor: "rgb(110,110,110)",
-              "&:hover": {
-                cursor: "pointer",
-                bgcolor: "rgb(30,147,6)",
-              },
-            }}
-          />
-          <LinkedInIcon
-            sx={{
-              border: "2px solid rgb(110,110,110)",
-              borderRadius: "50%",
-              color: "white",
-              padding: "1%",
-              bgcolor: "rgb(110,110,110)",
-              "&:hover": {
-                cursor: "pointer",
-                bgcolor: "rgb(30,147,6)",
-              },
-            }}
-          />
-          <YouTubeIcon
-            sx={{
-              border: "2px solid rgb(110,110,110)",
-              borderRadius: "50%",
-              color: "white",
-              padding: "1%",
-              bgcolor: "rgb(110,110,110)",
-              "&:hover": {
-                cursor: "pointer",
-                bgcolor: "rgb(30,147,6)",
-              },
-            }}
-          />
-        </Box>
-        <Box
+      <div className="headerLeftPart">
+        <SocialMediaIcons />
+        <List
           sx={{
             display: "flex",
             color: "white",
@@ -120,171 +43,57 @@ const Header = () => {
             {" "}
             18003094005
           </Typography>
-        </Box>
-      </Box>
+        </List>
+      </div>
 
+      {/* this is for screen above 901px */}
       {/* Right Part */}
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "flex-end",
-          width: "70%",
-          columnGap: "30px",
-          alignItems: "center",
-          color: "white",
-          "&:hover": {
-            cursor: "pointer",
-          },
-        }}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            columnGap: "10px",
-            bgcolor: "rgb(110,110,110)",
-            border: "2px solid rgb(110,110,110)",
-            borderRadius: "20px",
-            paddingX: "10px",
-            paddingY: "4px",
-            "&:hover": {
-              cursor: "pointer",
-            },
-            position: "relative",
-            zIndex: 10,
-          }}
-        >
+      <div className="headerRightPart">
+        <div className="placeDiv">
           <Typography>Gurgon</Typography>
-        </Box>
+        </div>
 
         {/* my account */}
-        <Box
-          sx={{
-            display: "flex",
-            columnGap: "10px",
-            bgcolor: "rgb(110,110,110)",
-            border: "2px solid rgb(110,110,110)",
-            borderRadius: "20px",
-            paddingX: "10px",
-            paddingY: "4px",
-            "&:hover": {
-              cursor: "pointer",
-            },
-            position: "relative",
-          }}
-          onMouseEnter={() =>
-            setToggleMsg({ ...toggleMsg, myAccount: true, myCart: false })
-          }
-          onMouseLeave={() =>
-            setToggleMsg({ ...toggleMsg, myAccount: false, myCart: false })
-          }
+        <div
+          className="myAccount"
+          onMouseEnter={() => mouseEnterHandler("myAccount")}
+          onMouseLeave={mouseLeaveHandler}
         >
           <AccountCircleIcon />
           <Typography>My Account</Typography>
           {toggleMsg.myAccount == true ? (
-            <Box
-              sx={{
-                position: "absolute",
-                color: "black",
-                backgroundColor: "white",
-                top: "35px",
-                right: "0px",
-                display: "Flex",
-                flexDirection: "column",
-                rowGap: "10px",
-                paddingX: "20px",
-                paddingY: "20px",
-                borderRadius: "10px",
-                alignItems: "center",
-                boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;",
-                zIndex: 3,
-              }}
-            >
-              <Typography
-                sx={{
-                  backgroundColor: "rgb(231,234,239)",
-                  width: "100%",
-                  padding: "5px",
-                  textAlign: "center",
-                  "&:hover": {
-                    cursor: "pointer",
-                    backgroundColor: "rgb(30,147,6)",
-                    color: "white",
-                  },
-                }}
-              >
-                Login
-              </Typography>
-              <Typography
-                sx={{
-                  backgroundColor: "rgb(231,234,239)",
-                  width: "100%",
-                  padding: "5px",
-                  textAlign: "center",
-                  "&:hover": {
-                    cursor: "pointer",
-                    backgroundColor: "rgb(30,147,6)",
-                    color: "white",
-                  },
-                }}
-              >
-                Register
-              </Typography>
-              <Typography
-                sx={{
-                  backgroundColor: "rgb(231,234,239)",
-                  width: "100%",
-                  padding: "5px",
-                  textAlign: "center",
-                  "&:hover": {
-                    cursor: "pointer",
-                    backgroundColor: "rgb(30,147,6)",
-                    color: "white",
-                  },
-                }}
-              >
-                Sell
-              </Typography>
-              <Typography
-                sx={{
-                  textAlign: "center",
-                  backgroundColor: "rgb(231,234,239)",
-                  width: "100%",
-                  padding: "5px",
-                  "&:hover": {
-                    cursor: "pointer",
-                    backgroundColor: "rgb(30,147,6)",
-                    color: "white",
-                  },
-                }}
-              >
-                Partner Dashboard
-              </Typography>
-            </Box>
+            <List className="myAccout_menuList" dense={true}>
+              {["Login", "Register", "Sell", "Partner Dashboard"].map(
+                (item, index) => {
+                  return (
+                    <Typography
+                      key={index}
+                      sx={{
+                        textAlign: "center",
+                        backgroundColor: "rgb(231,234,239)",
+                        width: "100%",
+                        padding: "5px",
+                        "&:hover": {
+                          cursor: "pointer",
+                          backgroundColor: "rgb(30,147,6)",
+                          color: "white",
+                        },
+                      }}
+                    >
+                      {item}
+                    </Typography>
+                  );
+                }
+              )}
+            </List>
           ) : null}
-        </Box>
+        </div>
 
         {/* my cart */}
-        <Box
-          sx={{
-            display: "flex",
-            columnGap: "10px",
-            bgcolor: "rgb(110,110,110)",
-            border: "2px solid rgb(110,110,110)",
-            borderRadius: "20px",
-            paddingX: "10px",
-            paddingY: "4px",
-            "&:hover": {
-              cursor: "pointer",
-            },
-            position: "relative",
-            zIndex: 3,
-          }}
-          onMouseEnter={() =>
-            setToggleMsg({ ...toggleMsg, myCart: true, myAccount: false })
-          }
-          onMouseLeave={() =>
-            setToggleMsg({ ...toggleMsg, myCart: false, myAccount: false })
-          }
+        <div
+          className="myCart"
+          onMouseEnter={() => mouseEnterHandler("myCart")}
+          onMouseLeave={mouseLeaveHandler}
         >
           <ShoppingCartIcon />
           <Typography>My Cart</Typography>
@@ -300,26 +109,47 @@ const Header = () => {
             0
           </Typography>
           {toggleMsg.myCart == true ? (
-            <Box
-              sx={{
+            <div
+              style={{
                 position: "absolute",
                 width: "350px",
                 color: "black",
                 right: "0px",
                 top: "40px",
                 backgroundColor: "white",
-                paddingX: "10px",
-                paddingY: "10px",
                 borderRadius: "20px",
                 textAlign: "center",
                 boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;",
+                padding: "10px 10px",
               }}
             >
               <Typography>You have no items in your shopping cart</Typography>
-            </Box>
+            </div>
           ) : null}
-        </Box>
-      </Box>
+        </div>
+      </div>
+
+      <div className="smallScreenHeader">
+        <div
+          style={{
+            width: "25%",
+            padding: "1% 2%",
+            backgroundColor: "white",
+            transform: "skewX(-30deg)",
+          }}
+        >
+          <Box
+            component={"img"}
+            src={
+              "https://evkharido.com/media/logo/stores/1/New_Logo_-_FInal_.jpg"
+            }
+            alt={"image"}
+            className="headerLogo"
+          />
+        </div>
+
+        <ShoppingCartIcon sx={{ color: "white", fontSize: "30px" }} />
+      </div>
     </Box>
   );
 };

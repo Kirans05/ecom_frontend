@@ -1,8 +1,11 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Divider, Typography } from "@mui/material";
 import React, { useState } from "react";
-import BestSellerCard from "./BestSellerCard";
+import ForwardArrow from "../NavigationArrows/ForwardArrow";
+import BackwardArrow from "../NavigationArrows/BackwardArrow";
+import BikeDescription from "../HomePageComponents/BikeDescription";
 
 const BestSeller = () => {
+  const [showArrows, setShowArrows] = useState(false);
   const [bestSellersProd, setBestSellersProd] = useState([
     {
       url: "https://evkharido.com/media/catalog/product/cache/f4037cf015b06dc984582ea64882dd84/r/b/rbseva_legend__images_reviews__price__range__charging_time__accessories1.jpg",
@@ -31,55 +34,31 @@ const BestSeller = () => {
   ]);
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        rowGap: "15px",
-        marginTop: "20px",
-        padding: "10px 0px",
-        justifyContent: "center",
-        alignItems: "center",
-        width: "100%",
-        backgroundColor: "rgb(243,243,243)",
-      }}
-    >
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          columnGap: "10px",
-        }}
-      >
-        <Typography sx={{ fontSize: "40px", fontWeight: "bold" }}>
-          BEST
-        </Typography>
-        <Typography
-          sx={{ fontSize: "40px", color: "rgb(56,160,34)", fontWeight: "bold" }}
-        >
-          SELLERS
-        </Typography>
-      </Box>
-      <Typography sx={{ fontWeight: 100 }}>
+    <Box className="bestSellersDiv">
+      <Typography className="titleTypography">
+        BEST <span className="mainTitle">SELLERS</span>
+      </Typography>
+      <Typography className="titleDescription">
         CHOOSE FROM BEST SELLING ELECTRIC BIKES & CYCLES
       </Typography>
-      <Box
-        sx={{ borderBottom: "3px solid rgb(56,160,34)", width: "10%" }}
-      ></Box>
+      <Divider className="dividerWidth" />
 
       {/* product image and deatils */}
-      <Box
-      sx={{
-        width:"100%",
-        border:"2px solid red",
-      }}
+      <div
+        className="productDiv"
+        onMouseEnter={() => setShowArrows(true)}
+        onMouseLeave={() => setShowArrows(false)}
       >
-        {
-            bestSellersProd.map((item, index) => {
-                return <BestSellerCard key={index} item={item}/>
-            })
-        }
-      </Box>
+        {bestSellersProd.map((item, index) => {
+          return <BikeDescription key={index} item={item} />;
+        })}
+
+        {/* forward arrow */}
+        {showArrows == true ? <ForwardArrow top={"50%"} right={"4%"} /> : null}
+
+        {/* backward arrow */}
+        {showArrows == true ? <BackwardArrow top={"50%"} left={"4%"} /> : null}
+      </div>
     </Box>
   );
 };

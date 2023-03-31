@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Divider, List, Typography } from "@mui/material";
 import React, { useState } from "react";
 
 const TopOffers = () => {
@@ -26,60 +26,18 @@ const TopOffers = () => {
   ]);
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        rowGap: "15px",
-        marginTop: "50px",
-        padding: "10px 0px",
-        justifyContent: "center",
-        alignItems: "center",
-        width: "100%",
-      }}
-    >
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          columnGap: "10px",
-        }}
-      >
-        <Typography sx={{ fontSize: "40px", fontWeight: "bold" }}>
-          TOP
-        </Typography>
-        <Typography
-          sx={{ fontSize: "40px", color: "rgb(56,160,34)", fontWeight: "bold" }}
-        >
-          OFFERS
-        </Typography>
-      </Box>
-      <Typography sx={{ fontWeight: 100 }}>
+    <Box className="topOffersDiv">
+      <Typography className="titleTypography">
+        TOP <span className="mainTitle">OFFERS</span>
+      </Typography>
+      <Typography className="titleDescription">
         CHOOSE FROM THE VARIETY OF TOP PRODUCTS & SERVICES OFFERED BY US
       </Typography>
-      <Box
-        sx={{ borderBottom: "3px solid rgb(56,160,34)", width: "10%" }}
-      ></Box>
-      <Box
-        sx={{
-          width: "90%",
-          padding: "0% 5%",
-          height: "82vh",
-          display: "flex",
-          columnGap: "20px",
-        }}
-      >
+      <Divider className="dividerWidth" />
+
+      <div className="imagesDiv">
         {/* first big image left part */}
-        <Box
-          sx={{
-            width: "40%",
-            height: "100%",
-            position: "relative",
-            "&:hover": {
-              cursor: "pointer",
-            },
-          }}
-        >
+        <div className="bigImageDiv">
           <Box
             component={"img"}
             src={offersImagesArr[0].url}
@@ -102,32 +60,16 @@ const TopOffers = () => {
           >
             {offersImagesArr[0].name}
           </Typography>
-        </Box>
+        </div>
 
         {/* right part 4 small images */}
-        <Box
-          sx={{
-            display: "flex",
-            flexWrap: "wrap",
-            width: "60%",
-            height: "100%",
-            justifyContent: "space-between",
-            rowGap: "11px",
-          }}
-        >
+        <div className="smallImageDiv">
           {offersImagesArr.map((item, index) => {
             if (index > 0) {
               return (
                 <Box
                   key={index}
-                  sx={{
-                    width: "49%",
-                    height: "49%",
-                    position: "relative",
-                    "&:hover": {
-                      cursor: "pointer",
-                    },
-                  }}
+                  className="smallImage"
                 >
                   <Box
                     component={"img"}
@@ -155,8 +97,8 @@ const TopOffers = () => {
               );
             }
           })}
-        </Box>
-      </Box>
+        </div>
+      </div>
     </Box>
   );
 };

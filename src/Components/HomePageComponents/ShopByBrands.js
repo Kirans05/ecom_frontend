@@ -1,7 +1,7 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Divider, List, Typography } from "@mui/material";
 import React, { useState } from "react";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import BackwardArrow from "../NavigationArrows/BackwardArrow";
+import ForwardArrow from "../NavigationArrows/ForwardArrow";
 
 const ShopByBrands = () => {
   const [showArrows, setShowArrows] = useState(false);
@@ -57,53 +57,18 @@ const ShopByBrands = () => {
   ]);
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        rowGap: "15px",
-        marginTop: "50px",
-        padding: "10px 0px",
-        justifyContent: "center",
-        alignItems: "center",
-        width: "100%",
-      }}
-    >
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          columnGap: "5px",
-        }}
-      >
-        <Typography sx={{ fontSize: "40px", fontWeight: "bold" }}>
-          SHOP BY
-        </Typography>
-        <Typography
-          sx={{ fontSize: "40px", color: "rgb(56,160,34)", fontWeight: "bold" }}
-        >
-          BRANDS
-        </Typography>
-      </Box>
-      <Typography sx={{ fontWeight: 100 }}>
+    <Box className="brandsDiv">
+      <Typography className="titleTypography">
+        SHOP BY <span className="mainTitle">BRANDS</span>
+      </Typography>
+      <Typography className="titleDescription">
         SELECT FROM WIDE RANGE OF EV BRANDS
       </Typography>
-      <Box
-        sx={{ borderBottom: "3px solid rgb(56,160,34)", width: "10%" }}
-      ></Box>
+      <Divider className="dividerWidth" />
 
       {/* brand images */}
-      <Box
-        sx={{
-          width: "90%",
-          padding: "0% 5%",
-          display: "flex",
-          flexWrap: "wrap",
-          height: "20vh",
-          justifyContent: "space-between",
-          rowGap: "6px",
-          position: "relative",
-        }}
+      <div
+        className="brandsListDiv"
         onMouseEnter={() => setShowArrows(true)}
         onMouseLeave={() => setShowArrows(false)}
       >
@@ -114,68 +79,17 @@ const ShopByBrands = () => {
               component={"img"}
               src={item.url}
               alt={"image"}
-              sx={{
-                width: "12%",
-                border: "2px solid white",
-                "&:hover": {
-                  cursor: "pointer",
-                  border: "2px solid rgb(31,148,7)",
-                },
-              }}
+              className="brandImage"
             />
           );
         })}
 
         {/* forward arrow */}
-        {showArrows == true ? (
-          <Box
-            sx={{
-              position: "absolute",
-              top: "35%",
-              right: "3%",
-              width: "50px",
-              height: "50px",
-              backgroundColor: "rgb(102,102,102)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              borderRadius: "50%",
-              color: "white",
-              "&:hover": {
-                cursor: "pointer",
-                backgroundColor: "rgb(31,148,7)",
-              },
-            }}
-          >
-            <ArrowForwardIosIcon />
-          </Box>
-        ) : null}
+        {showArrows == true ? <ForwardArrow top={"35%"} right={"3%"} /> : null}
 
         {/* backward arrow */}
-        {showArrows == true ? (
-          <Box
-            sx={{
-              position: "absolute",
-              top: "35%",
-              left: "3%",
-              width: "50px",
-              height: "50px",
-              backgroundColor: "rgb(102,102,102)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              borderRadius: "50%",
-              color: "white",
-              "&:hover": {
-                cursor: "pointer",
-                backgroundColor: "rgb(31,148,7)",
-              },
-            }}
-          >
-            <ArrowBackIosIcon />
-          </Box>
-        ) : null}
-      </Box>
+        {showArrows == true ? <BackwardArrow top={"35%"} left={"3%"} /> : null}
+      </div>
     </Box>
   );
 };

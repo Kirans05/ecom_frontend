@@ -1,7 +1,7 @@
 import { Box, Button, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ForwardArrow from "../NavigationArrows/ForwardArrow";
+import BackwardArrow from "../NavigationArrows/BackwardArrow";
 
 const Banner = () => {
   const [showArrows, setShowArrows] = useState(false);
@@ -70,10 +70,7 @@ const Banner = () => {
 
   return (
     <Box
-      sx={{
-        width: "100%",
-        position: "relative",
-      }}
+      className="bannerMainDiv"
       onMouseEnter={() => setShowArrows(true)}
       onMouseLeave={() => setShowArrows(false)}
     >
@@ -81,28 +78,11 @@ const Banner = () => {
         component={"img"}
         src={bannerImage.url}
         alt={"image"}
-        sx={{
-          width: "100%",
-          "&:hover":{
-            cursor:"pointer"
-          }
-        }}
+        className="bannerImage"
       />
 
       {/* search box */}
-      <Box
-        sx={{
-          position: "absolute",
-          width: "80%",
-          backgroundColor: "rgb(243,243,243)",
-          padding: "2% 5%",
-          display: "flex",
-          alignItems: "center",
-          bottom: "-50px",
-          left: "5%",
-          columnGap: "2px",
-        }}
-      >
+      <div className="searchBoxDiv">
         <TextField
           type={"text"}
           placeholder={"What are you looking for?"}
@@ -118,58 +98,20 @@ const Banner = () => {
         >
           SEARCH
         </Button>
-      </Box>
+      </div>
 
       {/* forward arrow */}
       {showArrows == true ? (
-        <Box
-          sx={{
-            position: "absolute",
-            top: "50%",
-            right: "5%",
-            width: "50px",
-            height: "50px",
-            backgroundColor: "rgb(243,243,243)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            borderRadius: "50%",
-            "&:hover": {
-              cursor: "pointer",
-              backgroundColor:"rgb(31,148,7)",
-              color:"white"
-            },
-          }}
-          onClick={nextImageHandler}
-        >
-          <ArrowForwardIosIcon />
-        </Box>
+        <div onClick={nextImageHandler}>
+          <ForwardArrow top={"50%"} right={"5%"} />
+        </div>
       ) : null}
 
       {/* backward arrow */}
       {showArrows == true ? (
-        <Box
-          sx={{
-            position: "absolute",
-            top: "50%",
-            left: "5%",
-            width: "50px",
-            height: "50px",
-            backgroundColor: "rgb(243,243,243)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            borderRadius: "50%",
-            "&:hover": {
-              cursor: "pointer",
-              backgroundColor:"rgb(31,148,7)",
-              color:"white"
-            },
-          }}
-          onClick={previousImageHandler}
-        >
-          <ArrowBackIosIcon />
-        </Box>
+        <div onClick={previousImageHandler}>
+          <BackwardArrow top={"50%"} left={"5%"} />
+        </div>
       ) : null}
     </Box>
   );

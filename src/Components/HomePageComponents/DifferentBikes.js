@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, List, ListItem, ListItemText, Typography } from "@mui/material";
 import React, { useState } from "react";
 
 const DifferentBikes = () => {
@@ -11,26 +11,35 @@ const DifferentBikes = () => {
     aboutUs: false,
   });
 
+  const mouseEnterHandler = (name) => {
+    setToggleMenu({
+      ...toggleMenu,
+      twoWheeler: false,
+      threeWheeler: false,
+      eCar: false,
+      eMassMobility: false,
+      news_review: false,
+      aboutUs: false,
+      [name]: true,
+    });
+  };
+
+  const mouseLeaveHandler = () => {
+    setToggleMenu({
+      ...toggleMenu,
+      twoWheeler: false,
+      threeWheeler: false,
+      eCar: false,
+      eMassMobility: false,
+      news_review: false,
+      aboutUs: false,
+    });
+  };
+
   return (
-    <Box
-      sx={{
-        width: "100%",
-        display: "flex",
-        height: "10vh",
-        boxShadow: "rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;"
-      }}
-    >
+    <Box className="differntBikesMainDiv">
       {/* image */}
-      <Box
-        sx={{
-          width: "10%",
-          marginRight: "20px",
-          "&:hover": {
-            cursor: "pointer",
-          },
-          alignSelf: "center",
-        }}
-      >
+      <div className="imageDiv">
         <Box
           component={"img"}
           src={
@@ -41,43 +50,13 @@ const DifferentBikes = () => {
             width: "100%",
           }}
         />
-      </Box>
+      </div>
 
       {/* E TWO WHEELERS */}
-      <Box
-        sx={{
-          "&:hover": {
-            cursor: "pointer",
-            backgroundColor: "rgb(30,147,6)",
-            color: "white",
-          },
-          width: "10%",
-          display: "flex",
-          alignItems: "center",
-          position: "relative",
-        }}
-        onMouseEnter={() =>
-          setToggleMenu({
-            ...toggleMenu,
-            twoWheeler: true,
-            threeWheeler: false,
-            eCar: false,
-            eMassMobility: false,
-            news_review: false,
-            aboutUs: false,
-          })
-        }
-        onMouseLeave={() =>
-          setToggleMenu({
-            ...toggleMenu,
-            twoWheeler: false,
-            threeWheeler: false,
-            eCar: false,
-            eMassMobility: false,
-            news_review: false,
-            aboutUs: false,
-          })
-        }
+      <div
+        className="menuDiv"
+        onMouseEnter={() => mouseEnterHandler("twoWheeler")}
+        onMouseLeave={mouseLeaveHandler}
       >
         <Typography
           sx={{
@@ -87,108 +66,28 @@ const DifferentBikes = () => {
           E TWO WHEELERS
         </Typography>
         {toggleMenu.twoWheeler == true ? (
-          <Box
-            sx={{
-              position: "absolute",
-              top: "70px",
-              left: "0px",
-              boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px;",
-              padding: "5px 0px 5px 0px",
-              width: "200px",
-              display: "flex",
-              flexDirection: "column",
-              rowGap: "12px",
-              color: "black",
-              zIndex:9,
-              backgroundColor:"white"
-            }}
-          >
-            <Typography
-              sx={{
-                "&:hover": {
-                  cursor: "pointer",
-                  backgroundColor: "rgb(243,243,243)",
-                },
-                padding: "0px 0px 0px 15px",
-              }}
-            >
-              Electric Scooter
-            </Typography>
-            <Typography
-              sx={{
-                "&:hover": {
-                  cursor: "pointer",
-                  backgroundColor: "rgb(243,243,243)",
-                },
-                padding: "0px 0px 0px 15px",
-                zIndex:9
-              }}
-            >
-              Electric Moped
-            </Typography>
-            <Typography
-              sx={{
-                "&:hover": {
-                  cursor: "pointer",
-                  backgroundColor: "rgb(243,243,243)",
-                },
-                padding: "0px 0px 0px 15px",
-                zIndex:9
-              }}
-            >
-              Electric Bike
-            </Typography>
-            <Typography
-              sx={{
-                "&:hover": {
-                  cursor: "pointer",
-                  backgroundColor: "rgb(243,243,243)",
-                },
-                padding: "0px 0px 0px 15px",
-                zIndex:9
-              }}
-            >
-              Electric Cycle
-            </Typography>
-          </Box>
+          <List className="menuList" dense={true}>
+            {[
+              "Electric Scooter",
+              "Electric Moped",
+              "Electric Bike",
+              "Electric Cycle",
+            ].map((item, index) => {
+              return (
+                <ListItem key={index} className="menuListItems">
+                  <Typography textAlign={"center"}>{item}</Typography>
+                </ListItem>
+              );
+            })}
+          </List>
         ) : null}
-      </Box>
+      </div>
 
       {/* E THREE WHEELERS */}
-      <Box
-        sx={{
-          "&:hover": {
-            cursor: "pointer",
-            backgroundColor: "rgb(30,147,6)",
-            color: "white",
-          },
-          width: "10%",
-          display: "flex",
-          alignItems: "center",
-          position: "relative",
-        }}
-        onMouseEnter={() =>
-          setToggleMenu({
-            ...toggleMenu,
-            threeWheeler: true,
-            eCar: false,
-            eMassMobility: false,
-            news_review: false,
-            aboutUs: false,
-            twoWheeler: false,
-          })
-        }
-        onMouseLeave={() =>
-          setToggleMenu({
-            ...toggleMenu,
-            threeWheeler: false,
-            eCar: false,
-            eMassMobility: false,
-            news_review: false,
-            aboutUs: false,
-            twoWheeler: false,
-          })
-        }
+      <div
+        className="menuDiv"
+        onMouseEnter={() => mouseEnterHandler("threeWheeler")}
+        onMouseLeave={mouseLeaveHandler}
       >
         <Typography
           sx={{
@@ -198,154 +97,46 @@ const DifferentBikes = () => {
           E THREE WHEELERS
         </Typography>
         {toggleMenu.threeWheeler == true ? (
-          <Box
-            sx={{
-              position: "absolute",
-              top: "70px",
-              left: "0px",
-              boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px;",
-              padding: "5px 0px 5px 0px",
-              width: "200px",
-              display: "flex",
-              flexDirection: "column",
-              rowGap: "12px",
-              color: "black",
-              zIndex:9,
-              backgroundColor:"white"
-            }}
-          >
-            <Typography
-              sx={{
-                "&:hover": {
-                  cursor: "pointer",
-                  backgroundColor: "rgb(243,243,243)",
-                },
-                padding: "0px 0px 0px 15px",
-              }}
-            >
-              Electric 3 Wheeler
-            </Typography>
-            <Typography
-              sx={{
-                "&:hover": {
-                  cursor: "pointer",
-                  backgroundColor: "rgb(243,243,243)",
-                },
-                padding: "0px 0px 0px 15px",
-              }}
-            >
-              Electric E Rikshaw
-            </Typography>
-          </Box>
+          <List className="menuList" dense={true}>
+            {["Electric 3 Wheeler", "Electric E Rikshaw"].map((item, index) => {
+              return (
+                <ListItem key={index} className="menuListItems">
+                  <Typography textAlign={"center"}>{item}</Typography>
+                </ListItem>
+              );
+            })}
+          </List>
         ) : null}
-      </Box>
+      </div>
 
       {/* ELECTRIC CAR */}
-      <Box
-        sx={{
-          "&:hover": {
-            cursor: "pointer",
-            backgroundColor: "rgb(30,147,6)",
-            color: "white",
-          },
-          width: "10%",
-          display: "flex",
-          alignItems: "center",
-          position: "relative",
-          justifyContent: "center",
-        }}
-        onMouseEnter={() =>
-          setToggleMenu({
-            ...toggleMenu,
-            eCar: true,
-            eMassMobility: false,
-            news_review: false,
-            aboutUs: false,
-            twoWheeler: false,
-            threeWheeler: false,
-          })
-        }
-        onMouseLeave={() =>
-          setToggleMenu({
-            ...toggleMenu,
-            eCar: false,
-            eMassMobility: false,
-            news_review: false,
-            aboutUs: false,
-            twoWheeler: false,
-            threeWheeler: false,
-          })
-        }
+      <div
+        className="menuDiv"
+        style={{ justifyContent: "center" }}
+        onMouseEnter={() => mouseEnterHandler("eCar")}
+        onMouseLeave={mouseLeaveHandler}
       >
         <Typography>ELECTRIC CAR</Typography>
 
         {toggleMenu.eCar == true ? (
-          <Box
-            sx={{
-              position: "absolute",
-              top: "70px",
-              left: "0px",
-              boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px;",
-              padding: "5px 0px 5px 0px",
-              width: "200px",
-              display: "flex",
-              flexDirection: "column",
-              rowGap: "12px",
-              color: "black",
-              zIndex:9,
-              backgroundColor:"white"
-            }}
-          >
-            <Typography
-              sx={{
-                "&:hover": {
-                  cursor: "pointer",
-                  backgroundColor: "rgb(243,243,243)",
-                },
-                padding: "0px 0px 0px 15px",
-              }}
-            >
-              E Car
-            </Typography>
-          </Box>
+          <List className="menuList" dense={true}>
+            {["E Car"].map((item, index) => {
+              return (
+                <ListItem key={index} className="menuListItems">
+                  <Typography textAlign={"center"}>{item}</Typography>
+                </ListItem>
+              );
+            })}
+          </List>
         ) : null}
-      </Box>
+      </div>
 
       {/* ELECTRIC MASS MOBILITY */}
-      <Box
-        sx={{
-          "&:hover": {
-            cursor: "pointer",
-            backgroundColor: "rgb(30,147,6)",
-            color: "white",
-          },
-          width: "10%",
-          display: "flex",
-          alignItems: "center",
-          position: "relative",
-        }}
-        onMouseEnter={() =>
-          setToggleMenu({
-            ...toggleMenu,
-            eMassMobility: true,
-            news_review: false,
-            aboutUs: false,
-            twoWheeler: false,
-            threeWheeler: false,
-            eCar: false,
-          })
-        }
-        onMouseLeave={() =>
-          setToggleMenu({
-            ...toggleMenu,
-            eMassMobility: false,
-            news_review: false,
-            aboutUs: false,
-            twoWheeler: false,
-            threeWheeler: false,
-            eCar: false,
-          })
-        }
+      <div
+        className="menuDiv"
+        style={{ justifyContent: "center" }}
+        onMouseEnter={() => mouseEnterHandler("eMassMobility")}
+        onMouseLeave={mouseLeaveHandler}
       >
         <Typography
           sx={{
@@ -355,83 +146,23 @@ const DifferentBikes = () => {
           ELECTRIC MASS MOBILITY
         </Typography>
         {toggleMenu.eMassMobility == true ? (
-          <Box
-            sx={{
-              position: "absolute",
-              top: "70px",
-              left: "0px",
-              boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px;",
-              padding: "5px 0px 5px 0px",
-              width: "200px",
-              display: "flex",
-              flexDirection: "column",
-              rowGap: "12px",
-              color: "black",
-              zIndex:9,
-              backgroundColor:"white"
-            }}
-          >
-            <Typography
-              sx={{
-                "&:hover": {
-                  cursor: "pointer",
-                  backgroundColor: "rgb(243,243,243)",
-                },
-                padding: "0px 0px 0px 15px",
-              }}
-            >
-              Electric Bus
-            </Typography>
-            <Typography
-              sx={{
-                "&:hover": {
-                  cursor: "pointer",
-                  backgroundColor: "rgb(243,243,243)",
-                },
-                padding: "0px 0px 0px 15px",
-              }}
-            >
-              E Van
-            </Typography>
-          </Box>
+          <List className="menuList" dense={true}>
+            {["Electric Bus", "E Van"].map((item, index) => {
+              return (
+                <ListItem key={index} className="menuListItems">
+                  <Typography textAlign={"center"}>{item}</Typography>
+                </ListItem>
+              );
+            })}
+          </List>
         ) : null}
-      </Box>
+      </div>
 
       {/* NEWS & REVIEWS */}
-      <Box
-        sx={{
-          "&:hover": {
-            cursor: "pointer",
-            backgroundColor: "rgb(30,147,6)",
-            color: "white",
-          },
-          width: "10%",
-          display: "flex",
-          alignItems: "center",
-          position: "relative",
-        }}
-        onMouseEnter={() =>
-          setToggleMenu({
-            ...toggleMenu,
-            news_review: true,
-            aboutUs: false,
-            twoWheeler: false,
-            threeWheeler: false,
-            eCar: false,
-            eMassMobility: false,
-          })
-        }
-        onMouseLeave={() =>
-          setToggleMenu({
-            ...toggleMenu,
-            news_review: false,
-            aboutUs: false,
-            twoWheeler: false,
-            threeWheeler: false,
-            eCar: false,
-            eMassMobility: false,
-          })
-        }
+      <div
+        className="menuDiv"
+        onMouseEnter={() => mouseEnterHandler("news_review")}
+        onMouseLeave={mouseLeaveHandler}
       >
         <Typography
           sx={{
@@ -441,184 +172,56 @@ const DifferentBikes = () => {
           NEWS & REVIEWS
         </Typography>
         {toggleMenu.news_review == true ? (
-          <Box
-            sx={{
-              position: "absolute",
-              top: "70px",
-              left: "0px",
-              boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px;",
-              padding: "5px 0px 5px 0px",
-              width: "200px",
-              display: "flex",
-              flexDirection: "column",
-              rowGap: "12px",
-              color: "black",
-              zIndex:9,
-              backgroundColor:"white"
-            }}
-          >
-            <Typography
-              sx={{
-                "&:hover": {
-                  cursor: "pointer",
-                  backgroundColor: "rgb(243,243,243)",
-                },
-                padding: "0px 0px 0px 15px",
-              }}
-            >
-              Informative Article EV
-            </Typography>
-            <Typography
-              sx={{
-                "&:hover": {
-                  cursor: "pointer",
-                  backgroundColor: "rgb(243,243,243)",
-                },
-                padding: "0px 0px 0px 15px",
-              }}
-            >
-              EV Guide & Tutorial
-            </Typography>
-            <Typography
-              sx={{
-                "&:hover": {
-                  cursor: "pointer",
-                  backgroundColor: "rgb(243,243,243)",
-                },
-                padding: "0px 0px 0px 15px",
-              }}
-            >
-              Latest EV News Bike
-            </Typography>
-          </Box>
+          <List className="menuList" dense={true}>
+            {[
+              "Informative Article EV",
+              "Informative Article EV",
+              "Latest EV News Bike",
+            ].map((item, index) => {
+              return (
+                <ListItem key={index} className="menuListItems">
+                  <Typography textAlign={"center"}>{item}</Typography>
+                </ListItem>
+              );
+            })}
+          </List>
         ) : null}
-      </Box>
+      </div>
 
       {/* EV SERVICES */}
-      <Box
-        sx={{
-          "&:hover": {
-            cursor: "pointer",
-            backgroundColor: "rgb(30,147,6)",
-            color: "white",
-          },
-          width: "10%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
+      <div className="menuDiv" style={{ justifyContent: "center" }}>
         <Typography>EV SERVICES</Typography>
-      </Box>
+      </div>
 
       {/* ABOUT US */}
-      <Box
-        sx={{
-          "&:hover": {
-            cursor: "pointer",
-            backgroundColor: "rgb(30,147,6)",
-            color: "white",
-          },
-          width: "10%",
-          display: "flex",
-          alignItems: "center",
-          position: "relative",
-          justifyContent: "center",
-        }}
-        onMouseEnter={() =>
-          setToggleMenu({
-            ...toggleMenu,
-            aboutUs: true,
-            twoWheeler: false,
-            threeWheeler: false,
-            eCar: false,
-            eMassMobility: false,
-            news_review: false,
-          })
-        }
-        onMouseLeave={() =>
-          setToggleMenu({
-            ...toggleMenu,
-            aboutUs: false,
-            twoWheeler: false,
-            threeWheeler: false,
-            eCar: false,
-            eMassMobility: false,
-            news_review: false,
-          })
-        }
+      <div
+        className="menuDiv"
+        style={{ justifyContent: "center" }}
+        onMouseEnter={() => mouseEnterHandler("aboutUs")}
+        onMouseLeave={mouseLeaveHandler}
       >
         <Typography>ABOUT US</Typography>
         {toggleMenu.aboutUs == true ? (
-          <Box
-            sx={{
-              position: "absolute",
-              top: "70px",
-              left: "0px",
-              boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px;",
-              padding: "5px 0px 5px 0px",
-              width: "200px",
-              display: "flex",
-              flexDirection: "column",
-              rowGap: "12px",
-              color: "black",
-              zIndex:9,
-              backgroundColor:"white"
-            }}
-          >
-            <Typography
-              sx={{
-                "&:hover": {
-                  cursor: "pointer",
-                  backgroundColor: "rgb(243,243,243)",
-                },
-                padding: "0px 0px 0px 15px",
-              }}
-            >
-              About Us
-            </Typography>
-            <Typography
-              sx={{
-                "&:hover": {
-                  cursor: "pointer",
-                  backgroundColor: "rgb(243,243,243)",
-                },
-                padding: "0px 0px 0px 15px",
-              }}
-            >
-              Contact Us
-            </Typography>
-            <Typography
-              sx={{
-                "&:hover": {
-                  cursor: "pointer",
-                  backgroundColor: "rgb(243,243,243)",
-                },
-                padding: "0px 0px 0px 15px",
-              }}
-            >
-              Partner with us - become an EV preneur
-            </Typography>
-          </Box>
+          <List className="menuList" dense={true}>
+            {[
+              "About Us",
+              "Contact Us",
+              "Partner with us - become an EV preneur",
+            ].map((item, index) => {
+              return (
+                <ListItem key={index} className="menuListItems">
+                  <Typography textAlign={"start"}>{item}</Typography>
+                </ListItem>
+              );
+            })}
+          </List>
         ) : null}
-      </Box>
+      </div>
 
       {/* FRANCHISE */}
-      <Box
-        sx={{
-          "&:hover": {
-            cursor: "pointer",
-            backgroundColor: "rgb(30,147,6)",
-            color: "white",
-          },
-          width: "10%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
+      <div className="menuDiv" style={{ justifyContent: "center" }}>
         <Typography>FRANCHISE</Typography>
-      </Box>
+      </div>
     </Box>
   );
 };

@@ -1,0 +1,159 @@
+.headerMainBox {
+  display: flex;
+  justify-content: space-between;
+  width: 98%;
+  align-items: center;
+  padding: 2% 1%;
+  background-color: rgb(102, 102, 102);
+}
+
+.headerMainBox .headerLeftPart {
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+  align-items: center;
+  padding: 0px;
+}
+
+.headerMainBox .headerRightPart {
+  display: flex;
+  justify-content: flex-end;
+  width: 70%;
+  column-gap: 30px;
+  align-items: center;
+  color: white;
+  padding: 0px;
+}
+
+.headerMainBox .headerRightPart:hover {
+  cursor: pointer;
+}
+
+.headerRightPart .placeDiv {
+  display: flex;
+  column-gap: 10px;
+  background-color: rgb(110, 110, 110);
+  border: 2px solid rgb(110, 110, 110);
+  border-radius: 20px;
+  padding: 4px 10px;
+  position: relative;
+  z-index: 10;
+}
+
+.headerRightPart .placeDiv:hover {
+  cursor: pointer;
+}
+
+.headerRightPart .myAccount {
+  display: flex;
+  column-gap: 10px;
+  background-color: rgb(110, 110, 110);
+  border: 2px solid rgb(110, 110, 110);
+  border-radius: 20px;
+  padding: 4px 10px;
+  position: relative;
+}
+
+.headerRightPart .myAccount:hover {
+  cursor: pointer;
+}
+
+.headerRightPart .myAccount .myAccout_menuList {
+  position: absolute;
+  color: black;
+  background-color: white;
+  top: 35px;
+  right: 0px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  padding: 20px;
+  border: 10px;
+  align-items: center;
+  z-index: 3;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.headerRightPart .myCart {
+  display: flex;
+  column-gap: 10px;
+  background-color: rgb(110, 110, 110);
+  border: 2px solid rgb(110, 110, 110);
+  border-radius: 20px;
+  padding: 4px 10px;
+  position: relative;
+  z-index: 3;
+}
+
+.headerRightPart .myCart:hover {
+  cursor: pointer;
+}
+
+/* this is for small screen upto 900px */
+.headerMainBox .smallScreenHeader {
+  display: none;
+}
+
+@media (min-width: 0px) and (max-width: 600px) {
+  .headerMainBox {
+    background-color: rgb(31, 148, 7);
+  }
+
+  .headerMainBox .headerLeftPart {
+    display: none;
+  }
+
+  .headerMainBox .headerRightPart {
+    display: none;
+  }
+
+  .headerMainBox .smallScreenHeader {
+    display: flex;
+    width: 96%;
+    justify-content: space-between;
+    padding: 0% 2%;
+    align-items: center;
+  }
+
+  .headerMainBox .smallScreenHeader .headerLogo {
+    width: 100%;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .headerMainBox {
+    background-color: rgb(31, 148, 7);
+  }
+
+  .headerMainBox .headerLeftPart {
+    display: none;
+  }
+
+  .headerMainBox .headerRightPart {
+    display: none;
+  }
+
+  .headerMainBox .smallScreenHeader {
+    display: flex;
+    width: 96%;
+    justify-content: space-between;
+    padding: 0% 2%;
+    align-items: center;
+  }
+
+  .headerMainBox .smallScreenHeader .headerLogo {
+    width: 100%;
+  }
+}
+@media (min-width: 901px) {
+}
+
+
+
+/* @media (min-width: 0px) and (max-width: 600px) {
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+}
+@media (min-width: 901px) {
+} */

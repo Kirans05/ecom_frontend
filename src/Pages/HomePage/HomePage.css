@@ -1,0 +1,948 @@
+/*  different bikes details css */
+.differntBikesMainDiv {
+  width: 100%;
+  display: flex;
+  height: 10vh;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.differntBikesMainDiv .imageDiv {
+  width: 10%;
+  margin-right: 20px;
+  align-self: center;
+}
+
+.differntBikesMainDiv .imageDiv:hover {
+  cursor: pointer;
+}
+
+.differntBikesMainDiv .menuDiv {
+  width: 10%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.differntBikesMainDiv .menuDiv:hover {
+  cursor: pointer;
+  background-color: rgb(30, 147, 6);
+  color: white;
+}
+
+.differntBikesMainDiv .menuDiv .menuList {
+  position: absolute;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 5px 0px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+  color: black;
+  z-index: 9;
+  background-color: white;
+  top: 70px;
+  left: 0px;
+  width: 200px;
+}
+
+.differntBikesMainDiv .menuDiv .menuList .menuListItems {
+}
+
+.differntBikesMainDiv .menuDiv .menuList .menuListItems:hover {
+  cursor: pointer;
+  background-color: rgb(243, 243, 243);
+}
+
+/* media query for differnt bikes part */
+@media (min-width: 0px) and (max-width: 600px) {
+  .differntBikesMainDiv {
+    display: none;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .differntBikesMainDiv {
+    display: none;
+  }
+}
+@media (min-width: 901px) {
+}
+
+/* banner image and styling */
+.bannerMainDiv {
+  width: 100%;
+  position: relative;
+}
+
+.bannerMainDiv .bannerImage {
+  width: 100%;
+}
+
+.bannerMainDiv .bannerImage:hover {
+  cursor: pointer;
+}
+
+.bannerMainDiv .searchBoxDiv {
+  position: absolute;
+  width: 80%;
+  background-color: rgb(243, 243, 243);
+  padding: 2% 5%;
+  display: flex;
+  align-items: center;
+  bottom: -50px;
+  left: 5%;
+  column-gap: 2px;
+}
+
+/* no media query for banner images */
+
+/* SHOP BY ELECTRIC VEHICLE css */
+.shopByElectricVehicleDiv {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  margin-top: 50px;
+  padding: 10px 0px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.shopByElectricVehicleDiv .titleTypography {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.shopByElectricVehicleDiv .titleTypography .mainTitle {
+  font-size: 40px;
+  color: rgb(56, 160, 34);
+  font-weight: bold;
+}
+
+.shopByElectricVehicleDiv .titleDescription {
+  font-weight: 200;
+  opacity: 0.7;
+}
+
+.shopByElectricVehicleDiv .dividerWidth {
+  border-bottom: 3px solid rgb(56, 160, 34);
+  width: 10%;
+}
+
+.shopByElectricVehicleDiv .productDiv {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0% 5%;
+  justify-content: space-between;
+  column-gap: 2px;
+  row-gap: 60px;
+}
+
+.shopByElectricVehicleDiv .productDiv .productCardDiv {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+}
+
+.shopByElectricVehicleDiv .productDiv .productCardDiv:hover {
+  cursor: pointer;
+}
+
+.shopByElectricVehicleDiv .productDiv .productCardDiv .productName {
+  width: 100%;
+  background-color: rgb(31, 148, 7);
+  color: white;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+/* shopo by electric vehicle media query */
+/* media query for differnt bikes part */
+@media (min-width: 0px) and (max-width: 600px) {
+  .shopByElectricVehicleDiv .titleTypography {
+    font-size: 27px;
+    text-align: center;
+  }
+
+  .shopByElectricVehicleDiv .titleTypography .mainTitle {
+    font-size: 27px;
+  }
+
+  .shopByElectricVehicleDiv .titleDescription {
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .shopByElectricVehicleDiv .dividerWidth {
+    width: 30%;
+  }
+
+  .shopByElectricVehicleDiv .productDiv {
+    width: 96%;
+    padding: 0% 2%;
+    justify-content: space-evenly;
+  }
+
+  .shopByElectricVehicleDiv .productDiv .productCardDiv {
+    width: 40%;
+  }
+
+  .shopByElectricVehicleDiv .productDiv .productCardDiv .productName {
+    height: 7vh;
+    text-align: center;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .shopByElectricVehicleDiv .titleTypography {
+    font-size: 32px;
+  }
+
+  .shopByElectricVehicleDiv .titleTypography .mainTitle {
+    font-size: 32px;
+  }
+
+  .shopByElectricVehicleDiv .titleDescription {
+    font-size: 18px;
+  }
+
+  .shopByElectricVehicleDiv .dividerWidth {
+    width: 20%;
+  }
+
+  .shopByElectricVehicleDiv .productDiv {
+    width: 96%;
+    padding: 0% 2%;
+    justify-content: space-evenly;
+  }
+
+  .shopByElectricVehicleDiv .productDiv .productCardDiv {
+    width: 30%;
+  }
+
+  .shopByElectricVehicleDiv .productDiv .productCardDiv .productName {
+    height: 7vh;
+    text-align: center;
+  }
+}
+
+@media (min-width: 901px) {
+}
+
+/* shop by brands css */
+.brandsDiv {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  margin-top: 50px;
+  padding: 10px 0px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.brandsDiv .titleTypography {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.brandsDiv .titleTypography .mainTitle {
+  font-size: 40px;
+  color: rgb(56, 160, 34);
+  font-weight: bold;
+}
+
+.brandsDiv .titleDescription {
+  font-weight: 200;
+  opacity: 0.7;
+}
+
+.brandsDiv .dividerWidth {
+  border-bottom: 3px solid rgb(56, 160, 34);
+  width: 10%;
+}
+
+.brandsDiv .brandsListDiv {
+  width: 90%;
+  padding: 0% 5%;
+  display: flex;
+  flex-wrap: wrap;
+  height: 20vh;
+  justify-content: space-between;
+  row-gap: 6px;
+  position: relative;
+}
+
+.brandsDiv .brandsListDiv .brandImage {
+  width: 12%;
+  border: 2px solid white;
+}
+
+.brandsDiv .brandsListDiv .brandImage:hover {
+  cursor: pointer;
+  border: 2px solid rgb(31, 148, 7);
+}
+
+/* media query for shop by brands */
+@media (min-width: 0px) and (max-width: 600px) {
+  .brandsDiv .titleTypography {
+    font-size: 27px;
+    text-align: center;
+  }
+
+  .brandsDiv .titleTypography .mainTitle {
+    font-size: 27px;
+  }
+
+  .brandsDiv .titleDescription {
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .brandsDiv .dividerWidth {
+    width: 30%;
+  }
+
+  .brandsDiv .brandsListDiv {
+    width: 96%;
+    padding: 0% 2%;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    overflow-x: auto;
+    column-gap: 10px;
+  }
+
+  .brandsDiv .brandsListDiv .brandImage {
+    width: 25%;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .brandsDiv .titleTypography {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .brandsDiv .titleTypography .mainTitle {
+    font-size: 32px;
+  }
+
+  .brandsDiv .titleDescription {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .brandsDiv .dividerWidth {
+    width: 20%;
+  }
+
+  .brandsDiv .brandsListDiv {
+    width: 96%;
+    padding: 0% 2%;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    overflow-x: auto;
+    column-gap: 10px;
+  }
+
+  .brandsDiv .brandsListDiv .brandImage {
+    width: 25%;
+  }
+}
+
+@media (min-width: 901px) {
+}
+
+/* electric vehicle location box css */
+.evLocation {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  margin-top: 50px;
+  padding: 10px 0px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.evLocation .titleTypography {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.evLocation .titleTypography .mainTitle {
+  font-size: 40px;
+  color: rgb(56, 160, 34);
+  font-weight: bold;
+}
+
+.evLocation .dividerWidth {
+  border-bottom: 3px solid rgb(56, 160, 34);
+  width: 10%;
+}
+
+.evLocation .innerDiv {
+  background-image: url("https://evkharido.com/static/version1674123307/frontend/Sm/market/en_US/images/bg-at-bike.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 50%;
+  padding: 0% 10%;
+  height: 30vh;
+  column-gap: 5px;
+}
+
+/* evlocation media query css */
+@media (min-width: 0px) and (max-width: 600px) {
+  .evLocation .titleTypography {
+    font-size: 27px;
+    text-align: center;
+  }
+
+  .evLocation .titleTypography .mainTitle {
+    font-size: 27px;
+  }
+
+  .evLocation .dividerWidth {
+    width: 30%;
+  }
+
+  .evLocation .innerDiv {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    padding: 5% 10%;
+    height: 45vh;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .evLocation .titleTypography {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .evLocation .titleTypography .mainTitle {
+    font-size: 32px;
+  }
+
+  .evLocation .dividerWidth {
+    width: 20%;
+  }
+
+  .evLocation .innerDiv {
+    flex-direction: column;
+    width: 70%;
+    padding: 2% 10%;
+    height: 35vh;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 901px) {
+}
+
+/* top offers css */
+.topOffersDiv {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  margin-top: 50px;
+  padding: 10px 0px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.topOffersDiv .titleTypography {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.topOffersDiv .titleTypography .mainTitle {
+  font-size: 40px;
+  color: rgb(56, 160, 34);
+  font-weight: bold;
+}
+
+.topOffersDiv .titleDescription {
+  font-weight: 200;
+  opacity: 0.7;
+}
+
+.topOffersDiv .dividerWidth {
+  border-bottom: 3px solid rgb(56, 160, 34);
+  width: 10%;
+}
+
+.topOffersDiv .imagesDiv {
+  width: 90%;
+  padding: 0% 5%;
+  height: 82vh;
+  display: flex;
+  column-gap: 20px;
+}
+
+.topOffersDiv .imagesDiv .bigImageDiv {
+  width: 40%;
+  height: 100%;
+  position: relative;
+}
+
+.topOffersDiv .imagesDiv .bigImageDiv:hover {
+  cursor: pointer;
+}
+
+.topOffersDiv .imagesDiv .smallImageDiv {
+  display: flex;
+  flex-wrap: wrap;
+  width: 60%;
+  height: 100%;
+  justify-content: space-between;
+  row-gap: 11px;
+}
+
+.topOffersDiv .imagesDiv .smallImageDiv .smallImage {
+  width: 49%;
+  height: 49%;
+  position: relative;
+}
+
+.topOffersDiv .imagesDiv .smallImageDiv .smallImage:hover {
+  cursor: pointer;
+}
+
+/* top offers media query css */
+@media (min-width: 0px) and (max-width: 600px) {
+  .topOffersDiv .titleTypography {
+    font-size: 27px;
+    text-align: center;
+  }
+
+  .topOffersDiv .titleTypography .mainTitle {
+    font-size: 27px;
+  }
+
+  .topOffersDiv .titleDescription {
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .topOffersDiv .dividerWidth {
+    width: 30%;
+  }
+
+  .topOffersDiv .imagesDiv {
+    width: 95%;
+    padding: 0% 2%;
+    height: fit-content;
+    flex-direction: column;
+    row-gap: 20px;
+  }
+
+  .topOffersDiv .imagesDiv .bigImageDiv {
+    width: 100%;
+    height: 40%;
+  }
+
+  .topOffersDiv .imagesDiv .smallImageDiv {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 100%;
+    row-gap: 20px;
+    justify-content: flex-start;
+  }
+
+  .topOffersDiv .imagesDiv .smallImageDiv .smallImage {
+    width: 100%;
+    height: 14%;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .topOffersDiv .titleTypography {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .topOffersDiv .titleTypography .mainTitle {
+    font-size: 32px;
+  }
+
+  .topOffersDiv .titleDescription {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .topOffersDiv .dividerWidth {
+    width: 20%;
+  }
+
+  /* alslask;lksa;lksa;l */
+  .topOffersDiv .imagesDiv {
+    width: 95%;
+    padding: 0% 2%;
+    height: 82vh;
+    flex-direction: row;
+    column-gap: 10px;
+  }
+
+  .topOffersDiv .imagesDiv .bigImageDiv {
+    width: 40%;
+  }
+
+  .topOffersDiv .imagesDiv .smallImageDiv {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 60%;
+    justify-content: space-evenly;
+  }
+
+  .topOffersDiv .imagesDiv .smallImageDiv .smallImage {
+    width: 49%;
+  }
+}
+
+@media (min-width: 901px) {
+}
+
+/* best sellers css */
+.bestSellersDiv {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  margin-top: 20px;
+  padding: 10px 0px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: rgb(243, 243, 243);
+}
+
+.bestSellersDiv .titleTypography {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.bestSellersDiv .titleTypography .mainTitle {
+  font-size: 40px;
+  color: rgb(56, 160, 34);
+  font-weight: bold;
+}
+
+.bestSellersDiv .titleDescription {
+  font-weight: 200;
+  opacity: 0.7;
+}
+
+.bestSellersDiv .dividerWidth {
+  border-bottom: 3px solid rgb(56, 160, 34);
+  width: 10%;
+}
+
+.bestSellersDiv .productDiv {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0% 5%;
+  position: relative;
+}
+
+.bestSellersDiv .productDiv .bikeDescription {
+  width: 23%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  background-color: white;
+  padding: 10px 0px;
+  position: relative;
+  justify-content: space-between;
+}
+
+.bestSellersDiv .productDiv .bikeDescription:hover {
+  cursor: pointer;
+}
+
+@media (min-width: 0px) and (max-width: 600px) {
+  .bestSellersDiv .titleTypography {
+    font-size: 27px;
+    text-align: center;
+  }
+
+  .bestSellersDiv .titleTypography .mainTitle {
+    font-size: 27px;
+  }
+
+  .bestSellersDiv .titleDescription {
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .bestSellersDiv .dividerWidth {
+    width: 30%;
+  }
+
+  .bestSellersDiv .productDiv {
+    width: 96%;
+    flex-direction: column;
+    padding: 0% 2%;
+    row-gap: 20px;
+  }
+
+  .bestSellersDiv .productDiv .bikeDescription {
+    width: 100%;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .bestSellersDiv .titleTypography {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .bestSellersDiv .titleTypography .mainTitle {
+    font-size: 32px;
+  }
+
+  .bestSellersDiv .titleDescription {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .bestSellersDiv .dividerWidth {
+    width: 20%;
+  }
+}
+
+@media (min-width: 901px) {
+}
+
+/* new div css  */
+.newsDiv {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  margin-top: 20px;
+  padding: 10px 0px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.newsDiv .newListDiv {
+  width: 90%;
+  padding: 0% 5%;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.newsDiv .newListDiv .newsCard {
+  width: 32%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.newsDiv .newListDiv .newsCard:hover {
+  cursor: pointer;
+}
+
+/* comparision main box css */
+.comparisionMainDiv {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  margin-top: 50px;
+  padding: 10px 0px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: rgb(243, 243, 243);
+}
+
+.comparisionMainDiv .comparisionProductDiv {
+  width: 90%;
+  padding: 0% 5%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.comparisionMainDiv .comparisionProductDiv .comparisionProductCard {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  justify-content: space-between;
+  background-color: white;
+  padding: 25px 10px;
+}
+
+/* new arrivals box css */
+.newArrivalMainDiv {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  margin-top: 50px;
+  padding: 10px 0px;
+  justify-content: center;
+  width: 99%;
+  align-items: center;
+}
+
+.newArrivalMainDiv .productList {
+  width: 90%;
+  padding: 0% 5%;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.newArrivalMainDiv .productList .bikeDescription {
+  width: 23%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  background-color: white;
+  padding: 10px 0px;
+  position: relative;
+  justify-content: space-between;
+}
+
+.newArrivalMainDiv .productList .bikeDescription:hover {
+  cursor: pointer;
+}
+
+/* guides and tutorial mian css */
+.gudes_tutorialMainDiv {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  margin-top: 50px;
+  padding: 20px 0px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.gudes_tutorialMainDiv .guidesProductList {
+  width: 90%;
+  padding: 0% 5%;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.gudes_tutorialMainDiv .guidesProductList .guidesCard {
+  width: 32%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.gudes_tutorialMainDiv .guidesProductList .guidesCard:hover {
+  cursor: pointer;
+}
+
+/* cumminity main box css */
+.communityMainDiv {
+  background-color: black;
+  color: white;
+  width: 90%;
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+/* customer review main box css */
+.customerReviewMainDiv {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  margin-top: 50px;
+  padding: 10px 0px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.customerReviewMainDiv .customerBox {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0% 5%;
+  position: relative;
+}
+
+.customerReviewMainDiv .customerBox .customerDetailsDiv {
+  width: 100%;
+  display: flex;
+  column-gap: 20px;
+  align-items: center;
+}
+
+/* faq box css */
+.customerReviewMainDiv .faqMainDiv {
+  width: 90%;
+  padding: 2% 5%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.faqMainDiv .faqCard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+
+.faqMainDiv .faqCard:hover {
+  cursor: pointer;
+}
+
+/* footer main box css */
+.footerMainDiv {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 2% 0% 0%;
+}
+
+.footerMainDiv .footerDetailsDiv {
+  background-color: rgb(53, 53, 53);
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  padding: 2% 5%;
+}
+
+.footerMainDiv .footerDetailsDiv .footerAboutDiv {
+  width: 30%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.footerMainDiv .footerDetailsDiv .footerQuickLinksDiv {
+  width: 30%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.footerMainDiv .footerDetailsDiv .fooerStayConnectedDiv {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}

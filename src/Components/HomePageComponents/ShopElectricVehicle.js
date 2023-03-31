@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Divider, List, Typography } from "@mui/material";
 import React, { useState } from "react";
 import EVehicleCard from "./EVehicleCard";
 
@@ -39,57 +39,21 @@ const ShopElectricVehicle = () => {
   ]);
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        rowGap: "15px",
-        marginTop: "50px",
-        padding: "10px 0px",
-        justifyContent: "center",
-        alignItems: "center",
-        width: "100%",
-      }}
-    >
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          columnGap: "5px",
-        }}
-      >
-        <Typography sx={{ fontSize: "40px", fontWeight: "bold" }}>
-          SHOP BY
-        </Typography>
-        <Typography
-          sx={{ fontSize: "40px", color: "rgb(56,160,34)", fontWeight: "bold" }}
-        >
-          ELECTRIC VEHICLE
-        </Typography>
-      </Box>
-      <Typography sx={{ fontWeight: 100 }}>
+    <Box className="shopByElectricVehicleDiv">
+      <Typography className="titleTypography">
+        SHOP BY <span className="mainTitle">ELECTRIC VEHICLE</span>
+      </Typography>
+      <Typography className="titleDescription">
         CHOOSE FROM POPULAR ELECTRIC VEHICLES
       </Typography>
-      <Box
-        sx={{ borderBottom: "3px solid rgb(56,160,34)", width: "10%" }}
-      ></Box>
+      <Divider className="dividerWidth" />
 
       {/* electric vehicle card list of electric vehicles */}
-      <Box
-      sx={{
-        width:"90%",
-        display:"flex",
-        flexWrap:"wrap",
-        padding:"0% 5%",
-        justifyContent:"space-between",
-        columnGap:"2px",
-        rowGap:"60px"
-      }}
-      >
+      <div className="productDiv">
         {vehicleArr.map((item, index) => {
           return <EVehicleCard key={index} item={item} />;
         })}
-      </Box>
+      </div>
     </Box>
   );
 };
