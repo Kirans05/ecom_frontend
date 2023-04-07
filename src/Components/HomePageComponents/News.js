@@ -28,7 +28,7 @@ const News = () => {
 
   return (
     <Box className="newsDiv">
-      <Typography sx={{ fontSize: "40px", fontWeight: "bold" }}>
+      <Typography className="titleTypography">
         NEWS
       </Typography>
       <Divider

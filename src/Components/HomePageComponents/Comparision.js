@@ -32,14 +32,14 @@ const Comparision = () => {
 
   return (
     <Box className="comparisionMainDiv">
-      <Typography sx={{ fontSize: "40px", fontWeight: "bold" }}>
+      <Typography className="titleTypography">
         COMPARISION
       </Typography>
-      <Typography sx={{ fontWeight: 100 }}>
+      <Typography className="titleDescription">
         CHOOSE FROM BEST SELLING ELECTRIC BIKES & CYCLES
       </Typography>
       <Divider
-        sx={{ borderBottom: "3px solid rgb(56,160,34)", width: "10%" }}
+        className="dividerWidth"
       />
 
       {/* camparision products details */}

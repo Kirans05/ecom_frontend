@@ -691,13 +691,15 @@
 
   .bestSellersDiv .productDiv {
     width: 96%;
-    flex-direction: column;
+    flex-direction: row;
     padding: 0% 2%;
     row-gap: 20px;
+    overflow: auto;
+    column-gap: 20px;
   }
 
   .bestSellersDiv .productDiv .bikeDescription {
-    width: 100%;
+    min-width: 100%;
   }
 }
 
@@ -719,6 +721,19 @@
   .bestSellersDiv .dividerWidth {
     width: 20%;
   }
+
+  .bestSellersDiv .productDiv {
+    width: 96%;
+    flex-direction: row;
+    padding: 0% 2%;
+    row-gap: 20px;
+    overflow: auto;
+    column-gap: 20px;
+  }
+
+  .bestSellersDiv .productDiv .bikeDescription {
+    min-width: 50%;
+  }
 }
 
 @media (min-width: 901px) {
@@ -734,6 +749,11 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+}
+
+.newsDiv .titleTypography {
+  font-size: 40px;
+  font-weight: bold;
 }
 
 .newsDiv .newListDiv {
@@ -755,6 +775,43 @@
   cursor: pointer;
 }
 
+/* news media query css */
+@media (min-width: 0px) and (max-width: 600px) {
+  .newsDiv .titleTypography {
+    font-size: 27px;
+    font-weight: bold;
+  }
+
+  .newsDiv .newListDiv {
+    flex-direction: row;
+    overflow: auto;
+    column-gap: 20px;
+  }
+
+  .newsDiv .newListDiv .newsCard {
+    min-width: 100%;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .newsDiv .titleTypography {
+    font-size: 32px;
+  }
+
+  .newsDiv .newListDiv {
+    flex-direction: row;
+    overflow: auto;
+    column-gap: 20px;
+  }
+
+  .newsDiv .newListDiv .newsCard {
+    min-width: 60%;
+  }
+}
+
+@media (min-width: 901px) {
+}
+
 /* comparision main box css */
 .comparisionMainDiv {
   display: flex;
@@ -766,6 +823,23 @@
   align-items: center;
   width: 100%;
   background-color: rgb(243, 243, 243);
+}
+
+.comparisionMainDiv .titleTypography {
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.comparisionMainDiv .titleDescription {
+  font-weight: 200;
+  opacity: 0.7;
+  text-align: center;
+}
+
+.comparisionMainDiv .dividerWidth {
+  border-bottom: 3px solid rgb(56, 160, 34);
+  width: 30%;
 }
 
 .comparisionMainDiv .comparisionProductDiv {
@@ -784,6 +858,40 @@
   padding: 25px 10px;
 }
 
+/* comparision css media query */
+@media (min-width: 0px) and (max-width: 600px) {
+  .comparisionMainDiv .titleTypography {
+    font-size: 27px;
+  }
+
+  .comparisionMainDiv .comparisionProductDiv {
+    overflow: auto;
+    column-gap: 20px;
+  }
+
+  .comparisionMainDiv .comparisionProductDiv .comparisionProductCard {
+    min-width: 100%;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .comparisionMainDiv .titleTypography {
+    font-size: 32px;
+  }
+
+  .comparisionMainDiv .comparisionProductDiv {
+    overflow: auto;
+    column-gap: 20px;
+  }
+
+  .comparisionMainDiv .comparisionProductDiv .comparisionProductCard {
+    min-width: 70%;
+  }
+}
+
+@media (min-width: 901px) {
+}
+
 /* new arrivals box css */
 .newArrivalMainDiv {
   display: flex;
@@ -794,6 +902,28 @@
   justify-content: center;
   width: 99%;
   align-items: center;
+}
+
+.newArrivalMainDiv .titleTypography {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.newArrivalMainDiv .titleTypography .mainTitle {
+  font-size: 40px;
+  color: rgb(56, 160, 34);
+  font-weight: bold;
+}
+
+.newArrivalMainDiv .titleDescription {
+  font-weight: 200;
+  opacity: 0.7;
+  text-align: center;
+}
+
+.newArrivalMainDiv .dividerWidth {
+  border-bottom: 3px solid rgb(56, 160, 34);
+  width: 10%;
 }
 
 .newArrivalMainDiv .productList {
@@ -819,6 +949,56 @@
   cursor: pointer;
 }
 
+/* new arrival media query css */
+@media (min-width: 0px) and (max-width: 600px) {
+  .newArrivalMainDiv .titleTypography {
+    font-size: 27px;
+  }
+
+  .newArrivalMainDiv .titleTypography .mainTitle {
+    font-size: 27px;
+  }
+
+  .newArrivalMainDiv .dividerWidth {
+    width: 30%;
+  }
+
+  .newArrivalMainDiv .productList {
+    overflow: auto;
+    column-gap: 20px;
+  }
+
+  .newArrivalMainDiv .productList .bikeDescription {
+    min-width: 100%;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .newArrivalMainDiv .titleTypography {
+    font-size: 32px;
+  }
+
+  .newArrivalMainDiv .titleTypography .mainTitle {
+    font-size: 32px;
+  }
+
+  .newArrivalMainDiv .dividerWidth {
+    width: 30%;
+  }
+
+  .newArrivalMainDiv .productList {
+    overflow: auto;
+    column-gap: 20px;
+  }
+
+  .newArrivalMainDiv .productList .bikeDescription {
+    min-width: 50%;
+  }
+}
+
+@media (min-width: 901px) {
+}
+
 /* guides and tutorial mian css */
 .gudes_tutorialMainDiv {
   display: flex;
@@ -829,6 +1009,29 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+}
+
+.gudes_tutorialMainDiv .titleTypography {
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.gudes_tutorialMainDiv .titleTypography .mainTitle {
+  font-size: 40px;
+  color: rgb(56, 160, 34);
+  font-weight: bold;
+}
+
+.gudes_tutorialMainDiv .titleDescription {
+  font-weight: 200;
+  opacity: 0.7;
+  text-align: center;
+}
+
+.gudes_tutorialMainDiv .dividerWidth {
+  border-bottom: 3px solid rgb(56, 160, 34);
+  width: 10%;
 }
 
 .gudes_tutorialMainDiv .guidesProductList {
@@ -850,6 +1053,59 @@
   cursor: pointer;
 }
 
+/* guides and tutorials media query css */
+@media (min-width: 0px) and (max-width: 600px) {
+  .gudes_tutorialMainDiv .titleTypography {
+    font-size: 27px;
+  }
+
+  .gudes_tutorialMainDiv .titleTypography .mainTitle {
+    font-size: 27px;
+  }
+
+  .gudes_tutorialMainDiv .titleDescription {
+  }
+
+  .gudes_tutorialMainDiv .dividerWidth {
+    width: 30%;
+  }
+
+  .gudes_tutorialMainDiv .guidesProductList {
+    column-gap: 20px;
+    overflow: auto;
+  }
+
+  .gudes_tutorialMainDiv .guidesProductList .guidesCard {
+    min-width: 100%;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .gudes_tutorialMainDiv .titleTypography {
+    font-size: 32px;
+  }
+
+  .gudes_tutorialMainDiv .titleTypography .mainTitle {
+    font-size: 32px;
+  }
+
+  .gudes_tutorialMainDiv .dividerWidth {
+    width: 30%;
+  }
+
+  .gudes_tutorialMainDiv .guidesProductList {
+    column-gap: 20px;
+    overflow: auto;
+  }
+
+  .gudes_tutorialMainDiv .guidesProductList .guidesCard {
+    min-width: 50%;
+  }
+}
+
+@media (min-width: 901px) {
+}
+
 /* cumminity main box css */
 .communityMainDiv {
   background-color: black;
@@ -859,6 +1115,49 @@
   display: flex;
   flex-direction: column;
   row-gap: 20px;
+}
+
+.communityMainDiv .communityHeading {
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.communityMainDiv .subscribe {
+  color: rgb(16, 114, 5);
+  text-align: center;
+}
+
+.communityMainDiv .communityDesc {
+  padding: 3% 5%;
+  border: 2px solid grey;
+  border-radius: 10px;
+  font-size: 25px;
+  text-align: center;
+}
+
+/* community media query css */
+@media (min-width: 0px) and (max-width: 600px) {
+  .communityMainDiv .communityHeading {
+    font-size: 30px;
+  }
+
+  .communityMainDiv .communityDesc {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .communityMainDiv .communityHeading {
+    font-size: 35px;
+  }
+
+  .communityMainDiv .communityDesc {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 901px) {
 }
 
 /* customer review main box css */
@@ -945,4 +1244,46 @@
   display: flex;
   flex-direction: column;
   row-gap: 10px;
+}
+
+/* footer media query css */
+@media (min-width: 0px) and (max-width: 600px) {
+  .footerMainDiv .footerDetailsDiv {
+    flex-direction: column;
+    row-gap: 20px;
+  }
+
+  .footerMainDiv .footerDetailsDiv .footerAboutDiv {
+    width: 100%;
+  }
+
+  .footerMainDiv .footerDetailsDiv .footerQuickLinksDiv {
+    width: 100%;
+  }
+
+  .footerMainDiv .footerDetailsDiv .fooerStayConnectedDiv {
+    width: 100%;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .footerMainDiv .footerDetailsDiv {
+    flex-direction: column;
+    row-gap: 20px;
+  }
+
+  .footerMainDiv .footerDetailsDiv .footerAboutDiv {
+    width: 100%;
+  }
+
+  .footerMainDiv .footerDetailsDiv .footerQuickLinksDiv {
+    width: 100%;
+  }
+
+  .footerMainDiv .footerDetailsDiv .fooerStayConnectedDiv {
+    width: 100%;
+  }
+}
+
+@media (min-width: 901px) {
 }

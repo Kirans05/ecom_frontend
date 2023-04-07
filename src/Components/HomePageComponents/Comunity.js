@@ -4,31 +4,19 @@ import React from "react";
 const Comunity = () => {
   return (
     <Box className="communityMainDiv">
-      <Typography
-        sx={{
-          fontSize: "40px",
-          fontWeight: "bold",
-          textAlign: "center",
-        }}
-      >
-        JOIN OUR COMMUNITY
-      </Typography>
-      <Typography
-        sx={{
-          color: "rgb(16,114,5)",
-          textAlign: "center",
-        }}
-      >
+      <Typography className="communityHeading">JOIN OUR COMMUNITY</Typography>
+      <Typography className="subscribe">
         SUBSCRIBE TO OUR NEWSLETTERS
       </Typography>
       <Typography
-        sx={{
-          padding: "3% 5%",
-          border: "2px solid grey",
-          borderRadius: "10px",
-          fontSize: "25px",
-          textAlign: "center",
-        }}
+        // sx={{
+        //   padding: "3% 5%",
+        //   border: "2px solid grey",
+        //   borderRadius: "10px",
+        //   fontSize: "25px",
+        //   textAlign: "center",
+        // }}
+        className="communityDesc"
       >
         Join the community of Green Warriors with for exciting awards, cash
         backs, latest news, EV maintenance tips, exclusive discounts and much

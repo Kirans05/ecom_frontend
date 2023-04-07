@@ -29,25 +29,14 @@ const Guides_Tutorials = () => {
 
   return (
     <Box className="gudes_tutorialMainDiv">
-      <Typography sx={{ fontSize: "40px", fontWeight: "bold" }}>
-        GUIDES &{" "}
-        <span
-          style={{
-            fontSize: "40px",
-            color: "rgb(56,160,34)",
-            fontWeight: "bold",
-          }}
-        >
-          TUTORIALS
-        </span>
+      <Typography className="titleTypography">
+        GUIDES & <span className="mainTitle">TUTORIALS</span>
       </Typography>
       <Typography></Typography>
-      <Typography sx={{ fontWeight: 100 }}>
+      <Typography className="titleDescription">
         GET INSIGHTS FROM OUR EXPERTS
       </Typography>
-      <Divider
-        sx={{ borderBottom: "3px solid rgb(56,160,34)", width: "10%" }}
-      />
+      <Divider className="dividerWidth" />
 
       {/* guides display */}
       <div

@@ -38,24 +38,13 @@ const NewArrivals = () => {
 
   return (
     <Box className="newArrivalMainDiv">
-      <Typography sx={{ fontSize: "40px", fontWeight: "bold" }}>
-        NEW{" "}
-        <span
-          style={{
-            fontSize: "40px",
-            color: "rgb(56,160,34)",
-            fontWeight: "bold",
-          }}
-        >
-          ARRIVALS
-        </span>
+      <Typography className="titleTypography">
+        NEW <span className="mainTitle">ARRIVALS</span>
       </Typography>
-      <Typography sx={{ fontWeight: 100 }}>
+      <Typography className="titleDescription">
         CHOOSE FROM OUR LATEST COLLECTION OF ELECTRIC BIKES, SCOOTERS & CYCLES
       </Typography>
-      <Divider
-        sx={{ borderBottom: "3px solid rgb(56,160,34)", width: "10%" }}
-      />
+      <Divider className="dividerWidth" />
       <div
         className="productList"
         onMouseEnter={() => setShowArrows(true)}
