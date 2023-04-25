@@ -1,15 +1,37 @@
-import { Box, List, Typography } from "@mui/material";
-import React, { useState } from "react";
+import { Box, List, Modal, Typography } from "@mui/material";
+import React, { useEffect, useState } from "react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import SocialMediaIcons from "../SocialMediaIcons/SocialMediaIcons";
 import "./Header.css";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import constants from "../../Constants/HomePage";
+import LoginModal from "../LoginModal/LoginModal";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  let {
+    Call_Us_Free,
+    Number_18003094005,
+    Gurgon,
+    My_Account,
+    My_Account_Arr,
+    My_Cart,
+    You_have_no_items_in_your_shopping_cart,
+  } = constants;
   const [toggleMsg, setToggleMsg] = useState({
     myCart: false,
     myAccount: false,
   });
+  const navigate = useNavigate();
+  const [LoginModalOpen, setLoginModalOpen] = React.useState(false);
+  const handleLoginModalOpen = () => setLoginModalOpen(true);
+  const handleLoginModalClose = () => setLoginModalOpen(false);
+
+  const [userData, setUserData] = useState({
+    userExist: false,
+    userDetails: "",
+  });
+  const [reRender, setReRender] = useState(true);
 
   const mouseEnterHandler = (name) => {
     setToggleMsg({
@@ -24,6 +46,25 @@ const Header = () => {
     setToggleMsg({ ...toggleMsg, myAccount: false, myCart: false });
   };
 
+  const signOutUser = () => {
+    localStorage.removeItem("user_details");
+    setReRender(!reRender);
+  };
+
+  useEffect(() => {
+    if (localStorage.getItem("user_details") == null) {
+      setUserData({
+        userExist: false,
+        userDetails: ""
+      });
+    } else {
+      setUserData({
+        userExist: true,
+        userDetails: JSON.parse(localStorage.getItem("user_details")),
+      });
+    }
+  }, [reRender]);
+
   return (
     <Box className="headerMainBox">
       {/* this is for screen above 901px */}
@@ -36,12 +77,12 @@ const Header = () => {
             color: "white",
           }}
         >
-          <Typography>Call Us Free : </Typography>
+          <Typography>{Call_Us_Free} : </Typography>
           <Typography
             sx={{ fontWeight: "bold", "&:hover": { cursor: "pointer" } }}
           >
             {" "}
-            18003094005
+            {Number_18003094005}
           </Typography>
         </List>
       </div>
@@ -50,7 +91,7 @@ const Header = () => {
       {/* Right Part */}
       <div className="headerRightPart">
         <div className="placeDiv">
-          <Typography>Gurgon</Typography>
+          <Typography>{Gurgon}</Typography>
         </div>
 
         {/* my account */}
@@ -60,11 +101,93 @@ const Header = () => {
           onMouseLeave={mouseLeaveHandler}
         >
           <AccountCircleIcon />
-          <Typography>My Account</Typography>
+          <Typography>{My_Account}</Typography>
           {toggleMsg.myAccount == true ? (
             <List className="myAccout_menuList" dense={true}>
-              {["Login", "Register", "Sell", "Partner Dashboard"].map(
-                (item, index) => {
+              {My_Account_Arr.map((item, index) => {
+                if (item == "Login" || item == "Register") {
+                  return (
+                    <Typography
+                      key={index}
+                      sx={{
+                        textAlign: "center",
+                        backgroundColor: "rgb(231,234,239)",
+                        width: "100%",
+                        padding: "5px",
+                        "&:hover": {
+                          cursor: "pointer",
+                          backgroundColor: "rgb(30,147,6)",
+                          color: "white",
+                        },
+                        display: userData.userExist == true ? "none" : "block",
+                      }}
+                      onClick={handleLoginModalOpen}
+                    >
+                      {item}
+                    </Typography>
+                  );
+                } else if (item == "Partner Dashboard") {
+                  return (
+                    <Typography
+                      key={index}
+                      sx={{
+                        textAlign: "center",
+                        backgroundColor: "rgb(231,234,239)",
+                        width: "100%",
+                        padding: "5px",
+                        "&:hover": {
+                          cursor: "pointer",
+                          backgroundColor: "rgb(30,147,6)",
+                          color: "white",
+                        },
+                      }}
+                      onClick={() => navigate("/CustomerLogin")}
+                    >
+                      {item}
+                    </Typography>
+                  );
+                } else if (item == "My Account") {
+                  return (
+                    <Typography
+                      key={index}
+                      sx={{
+                        textAlign: "center",
+                        backgroundColor: "rgb(231,234,239)",
+                        width: "100%",
+                        padding: "5px",
+                        "&:hover": {
+                          cursor: "pointer",
+                          backgroundColor: "rgb(30,147,6)",
+                          color: "white",
+                        },
+                        display: userData.userExist == true ? "block" : "none",
+                      }}
+                    >
+                      {item}
+                    </Typography>
+                  );
+                } else if (item == "Sign Out") {
+                  return (
+                    <Typography
+                      key={index}
+                      sx={{
+                        textAlign: "center",
+                        backgroundColor: "rgb(231,234,239)",
+                        width: "100%",
+                        padding: "5px",
+                        "&:hover": {
+                          cursor: "pointer",
+                          backgroundColor: "rgb(30,147,6)",
+                          color: "white",
+                        },
+                        display: userData.userExist == true ? "block" : "none",
+                      }}
+                      onClick={signOutUser}
+                    >
+                      {item}
+                    </Typography>
+                  );
+                } else {
                   return (
                     <Typography
                       key={index}
@@ -84,7 +207,7 @@ const Header = () => {
                     </Typography>
                   );
                 }
-              )}
+              })}
             </List>
           ) : null}
         </div>
@@ -96,7 +219,7 @@ const Header = () => {
           onMouseLeave={mouseLeaveHandler}
         >
           <ShoppingCartIcon />
-          <Typography>My Cart</Typography>
+          <Typography>{My_Cart}</Typography>
           <Typography
             sx={{
               bgcolor: "rgb(30,147,6)",
@@ -123,7 +246,7 @@ const Header = () => {
                 padding: "10px 10px",
               }}
             >
-              <Typography>You have no items in your shopping cart</Typography>
+              <Typography>{You_have_no_items_in_your_shopping_cart}</Typography>
             </div>
           ) : null}
         </div>
@@ -150,6 +273,19 @@ const Header = () => {
 
         <ShoppingCartIcon sx={{ color: "white", fontSize: "30px" }} />
       </div>
+      <Modal
+        open={LoginModalOpen}
+        onClose={handleLoginModalClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <LoginModal
+          handleLoginModalClose={handleLoginModalClose}
+          setLoginModalOpen={setLoginModalOpen}
+          reRender={reRender}
+          setReRender={setReRender}
+        />
+      </Modal>
     </Box>
   );
 };

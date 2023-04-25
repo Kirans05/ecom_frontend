@@ -1,0 +1,252 @@
+.ProductPageMainDiv {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.ProductPageMainDiv .productDiv {
+  width: 88%;
+  padding: 2% 6%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 25px;
+}
+
+.ProductPageMainDiv .productDiv .mainDiv {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* side filter css */
+.ProductPageMainDiv .productDiv .mainDiv .sideFilterMainDiv {
+  width: 20%;
+  background-color: rgb(249, 249, 249);
+  display: flex;
+  flex-direction: column;
+  padding: 2% 1%;
+  row-gap: 20px;
+}
+
+.productDiv .mainDiv .sideFilterMainDiv .title {
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.productDiv .mainDiv .sideFilterMainDiv .categoryDiv {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.sideFilterMainDiv .divMainTitle {
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.sideFilterMainDiv .divSubtitle {
+  font-size: 15px;
+}
+
+.sideFilterMainDiv .inputTextFeild {
+  height: 30px;
+  padding-left: 10px;
+}
+
+.productDiv .mainDiv .sideFilterMainDiv .brandDiv {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.mainDiv .sideFilterMainDiv .filterElementDiv {
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  overflow: auto;
+}
+
+.sideFilterMainDiv .filterComponent {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sideFilterMainDiv .filterComponent:hover {
+  cursor: pointer;
+}
+
+.sideFilterMainDiv .rangeSlider {
+  width: 70%;
+  align-self: center;
+}
+
+.sideFilterMainDiv .yearBtns {
+  background-color: white;
+  padding: 4% 5%;
+  border: 1px solid rgb(175, 173, 173);
+}
+
+.sideFilterMainDiv .yearBtns:hover {
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.sideFilterMainDiv .ratingsMainDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sideFilterMainDiv .ratingsMainDiv .ratingsStar {
+  font-size: 20px;
+}
+
+/* main product display side right side css */
+.ProductPageMainDiv .productDiv .productCategoryMainDiv {
+  width: 77%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.ProductPageMainDiv .productDiv .productCategoryMainDiv .productTitle {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.productCategoryMainDiv .productHeaderMainDiv {
+  display: flex;
+  width: 96%;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(249, 249, 249);
+  padding: 2%;
+}
+
+.productHeaderMainDiv .menuiIconsClicked {
+  padding: 3%;
+  background-color: rgb(31, 148, 7);
+  color: white;
+  border: 1px solid rgb(31, 148, 7);
+}
+
+.productHeaderMainDiv .menuiIconsClicked:hover {
+  cursor: pointer;
+}
+
+.productHeaderMainDiv .menuiIconsNotClicked {
+  padding: 3%;
+  background-color: white;
+  color: black;
+  border: 1px solid rgb(215, 211, 211);
+}
+
+.productHeaderMainDiv .menuiIconsNotClicked:hover {
+  cursor: pointer;
+}
+
+.productCategoryMainDiv .productDescriptionDiv {
+  /* border: 3px solid red; */
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.productCategoryMainDiv .columnView {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.productCategoryMainDiv .productDescriptionDiv .bikeDescription {
+  min-width: 24%;
+  max-width: 24%;
+  position: relative;
+  padding: 2% 0%;
+}
+
+.productCategoryMainDiv .productDescriptionDiv .bikeDescription:hover {
+  cursor: pointer;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.productCategoryMainDiv .productDescriptionDiv .bikeDescriptionColumnView {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.productCategoryMainDiv
+  .productDescriptionDiv
+  .bikeDescriptionColumnView:hover {
+  cursor: pointer;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.productDescriptionDiv .bikeDescription .productImage {
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 35vh;
+  max-height: 35vh;
+}
+
+.productDescriptionDiv .bikeDescriptionColumnView .productImageColumnView {
+  min-width: 40%;
+  max-width: 40%;
+  min-height: 40vh;
+  max-height: 40vh;
+}
+
+.productDescriptionDiv .bikeDescription .bikeDeatilsDiv {
+  padding: 1px 20px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  align-items: center;
+}
+
+.productDescriptionDiv .bikeDescriptionColumnView .bikeDeatilsDivColumnView {
+  padding: 1px 20px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  align-items: flex-start;
+}
+
+.productDescriptionDiv .bikeDescription .enquireNowBtn {
+  padding: 6px 10px;
+}
+
+.productDescriptionDiv .bikeDescription .quickViewToggle {
+  position: absolute;
+  background-color: rgb(31, 148, 7);
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding: 5px 0px;
+  top: 40%;
+}
+
+.productDescriptionDiv .bikeDescriptionColumnView .quickViewToggleColumnView {
+  display: none;
+}
+
+.productDescriptionDiv .bikeDescription .quickViewText {
+  display: none;
+}
+
+.productDescriptionDiv .bikeDescriptionColumnView .quickViewTextColumnView {
+  display: flex;
+}
+
+.productDescriptionDiv
+  .bikeDescriptionColumnView
+  .quickViewTextColumnView:hover {
+  cursor: pointer;
+  color: green;
+}

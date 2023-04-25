@@ -1,0 +1,55 @@
+.productModalMainBox {
+  position: absolute;
+  top: 25%;
+  background-color: white;
+  padding: 2%;
+  left: 20%;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.productModalMainBox .name_ratingsBox {
+  display: flex;
+  column-gap: 15px;
+  align-items: center;
+}
+
+.productModalMainBox .image_descriptionBox {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.productModalMainBox .image_descriptionBox .imageBox {
+  width: 45%;
+  position: relative;
+}
+
+.productModalMainBox .image_descriptionBox .imageBox:hover {
+  cursor: pointer;
+}
+
+.productModalMainBox .image_descriptionBox .descriptionBox {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  justify-content: flex-start;
+  margin-top: 2%;
+}
+
+.image_descriptionBox .descriptionBox .AddToCartBtn {
+  display: flex;
+  align-items: center;
+  column-gap: 2px;
+  background-color: rgb(31, 148, 7);
+  color: white;
+  padding: 2%;
+  width: fit-content;
+}
+
+.image_descriptionBox .descriptionBox .AddToCartBtn:hover {
+  cursor: pointer;
+}

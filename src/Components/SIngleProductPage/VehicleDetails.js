@@ -5,52 +5,46 @@ import {
   Typography,
   Card,
   CardContent,
-  Modal,
 } from "@mui/material";
 import React, { useState } from "react";
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import LoopIcon from "@mui/icons-material/Loop";
-import ProductModal from "../ProductModal/ProductModal";
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
 
-const NewArrivalCard = ({ item }) => {
+const VehicleDetails = ({ item, setMenuIconsSelected, menuIconsSelected }) => {
   const [toggleMsg, setToggleMsg] = useState(false);
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
   return (
     <Card
-      className="bikeDescription"
+      className={
+        menuIconsSelected == "grid"
+          ? "bikeDescription"
+          : "bikeDescriptionColumnView"
+      }
       onMouseEnter={() => setToggleMsg(true)}
       onMouseLeave={() => setToggleMsg(false)}
     >
       <Box
         component={"img"}
-        src={item.url}
+        src={
+          item.image[0] == ""
+            ? item.thumbnail
+            : item.image.length == 0
+            ? item.thumbnail
+            : item.image[0]
+        }
         alt={"image"}
-        sx={{
-          width: "100%",
-        }}
+        className={
+          menuIconsSelected == "grid"
+            ? "productImage"
+            : "productImageColumnView"
+        }
       />
       <Box
-        sx={{
-          padding: "1px 20px",
-          display: "flex",
-          flexDirection: "column",
-          rowGap: "5px",
-          alignItems: "center",
-        }}
+        className={
+          menuIconsSelected == "grid"
+            ? "bikeDeatilsDiv"
+            : "bikeDeatilsDivColumnView"
+        }
       >
         <Typography
           sx={{
@@ -63,7 +57,8 @@ const NewArrivalCard = ({ item }) => {
         {item.ratings == 0 ? null : (
           <Rating
             name="half-rating"
-            defaultValue={item.ratings.toString()}
+            defaultValue={5}
+            //   defaultValue={item.ratings.toString()}
             precision={0.5}
             readOnly
             sx={{
@@ -92,6 +87,7 @@ const NewArrivalCard = ({ item }) => {
             {item.price}
           </Typography>
         </Box>
+        <Typography>Onwards</Typography>
         <Box
           sx={{
             display: "flex",
@@ -124,8 +120,9 @@ const NewArrivalCard = ({ item }) => {
                 backgroundColor: "rgb(31,148,7)",
               },
             }}
+            className="enquireNowBtn"
           >
-            ADD TO CART
+            ENQUIRE NOW
           </Button>
           <Box
             sx={{
@@ -144,33 +141,30 @@ const NewArrivalCard = ({ item }) => {
             <LoopIcon />
           </Box>
         </Box>
+        <Typography
+          className={
+            menuIconsSelected == "grid"
+              ? "quickViewText"
+              : "quickViewTextColumnView"
+          }
+        >
+          Qucik View
+        </Typography>
       </Box>
       {toggleMsg == true ? (
         <Typography
-          sx={{
-            position: "absolute",
-            backgroundColor: "rgb(31,148,7)",
-            color: "white",
-            width: "100%",
-            textAlign: "center",
-            padding: "5px 0px",
-            top: "40%",
-          }}
-          onClick={handleOpen}
+          className={
+            menuIconsSelected == "grid"
+              ? "quickViewToggle"
+              : "quickViewToggleColumnView"
+          }
         >
           QUICK VIEW
         </Typography>
       ) : null}
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-          <ProductModal item={item}/>
-      </Modal>
     </Card>
   );
+  // return "hi"
 };
 
-export default NewArrivalCard;
+export default VehicleDetails;

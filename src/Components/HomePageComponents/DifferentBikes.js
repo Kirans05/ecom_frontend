@@ -1,7 +1,19 @@
 import { Box, List, ListItem, ListItemText, Typography } from "@mui/material";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import constants from "../../Constants/HomePage";
 
 const DifferentBikes = () => {
+  let {
+    E_TWO_WHEELERS,
+    E_THREE_WHEELERS,
+    ELECTRIC_CAR_title,
+    ELECTRIC_MASS_MOBILITY,
+    EV_SERVICES,
+    ABOUT_US,
+    FRANCHISE,
+  } = constants;
+  const navigate = useNavigate();
   const [toggleMenu, setToggleMenu] = useState({
     twoWheeler: false,
     threeWheeler: false,
@@ -39,7 +51,7 @@ const DifferentBikes = () => {
   return (
     <Box className="differntBikesMainDiv">
       {/* image */}
-      <div className="imageDiv">
+      <div className="imageDiv" onClick={() => navigate("/")}>
         <Box
           component={"img"}
           src={
@@ -63,7 +75,7 @@ const DifferentBikes = () => {
             textAlign: "center",
           }}
         >
-          E TWO WHEELERS
+          {E_TWO_WHEELERS}
         </Typography>
         {toggleMenu.twoWheeler == true ? (
           <List className="menuList" dense={true}>
@@ -94,7 +106,7 @@ const DifferentBikes = () => {
             textAlign: "center",
           }}
         >
-          E THREE WHEELERS
+          {E_THREE_WHEELERS}
         </Typography>
         {toggleMenu.threeWheeler == true ? (
           <List className="menuList" dense={true}>
@@ -112,11 +124,13 @@ const DifferentBikes = () => {
       {/* ELECTRIC CAR */}
       <div
         className="menuDiv"
-        style={{ justifyContent: "center" }}
         onMouseEnter={() => mouseEnterHandler("eCar")}
         onMouseLeave={mouseLeaveHandler}
+        style={{
+          justifyContent: "center",
+        }}
       >
-        <Typography>ELECTRIC CAR</Typography>
+        <Typography>{ELECTRIC_CAR_title}</Typography>
 
         {toggleMenu.eCar == true ? (
           <List className="menuList" dense={true}>
@@ -134,16 +148,18 @@ const DifferentBikes = () => {
       {/* ELECTRIC MASS MOBILITY */}
       <div
         className="menuDiv"
-        style={{ justifyContent: "center" }}
         onMouseEnter={() => mouseEnterHandler("eMassMobility")}
         onMouseLeave={mouseLeaveHandler}
+        style={{
+          justifyContent: "center",
+        }}
       >
         <Typography
           sx={{
             textAlign: "center",
           }}
         >
-          ELECTRIC MASS MOBILITY
+          {ELECTRIC_MASS_MOBILITY}
         </Typography>
         {toggleMenu.eMassMobility == true ? (
           <List className="menuList" dense={true}>
@@ -189,18 +205,25 @@ const DifferentBikes = () => {
       </div>
 
       {/* EV SERVICES */}
-      <div className="menuDiv" style={{ justifyContent: "center" }}>
-        <Typography>EV SERVICES</Typography>
+      <div
+        className="menuDiv"
+        style={{
+          justifyContent: "center",
+        }}
+      >
+        <Typography>{EV_SERVICES}</Typography>
       </div>
 
       {/* ABOUT US */}
       <div
         className="menuDiv"
-        style={{ justifyContent: "center" }}
         onMouseEnter={() => mouseEnterHandler("aboutUs")}
         onMouseLeave={mouseLeaveHandler}
+        style={{
+          justifyContent: "center",
+        }}
       >
-        <Typography>ABOUT US</Typography>
+        <Typography>{ABOUT_US}</Typography>
         {toggleMenu.aboutUs == true ? (
           <List className="menuList" dense={true}>
             {[
@@ -219,8 +242,13 @@ const DifferentBikes = () => {
       </div>
 
       {/* FRANCHISE */}
-      <div className="menuDiv" style={{ justifyContent: "center" }}>
-        <Typography>FRANCHISE</Typography>
+      <div
+        className="menuDiv"
+        style={{
+          justifyContent: "center",
+        }}
+      >
+        <Typography>{FRANCHISE}</Typography>
       </div>
     </Box>
   );

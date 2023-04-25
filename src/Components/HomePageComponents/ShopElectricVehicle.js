@@ -1,8 +1,15 @@
 import { Box, Divider, List, Typography } from "@mui/material";
 import React, { useState } from "react";
 import EVehicleCard from "./EVehicleCard";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import constants from "../../Constants/HomePage";
 
 const ShopElectricVehicle = () => {
+  let {CHOOSE_FROM_POPULAR_ELECTRIC_VEHICLES, SHOP_BY_ELECTRIC_VEHICL} = constants
+  const storeState = useSelector((state) => state.HomePageReducer);
+  let { productsData } = storeState;
+  console.log(productsData);
   const [vehicleArr, setVehicleArr] = useState([
     {
       name: "ELECTRIC CAR",
@@ -44,14 +51,20 @@ const ShopElectricVehicle = () => {
         SHOP BY <span className="mainTitle">ELECTRIC VEHICLE</span>
       </Typography>
       <Typography className="titleDescription">
-        CHOOSE FROM POPULAR ELECTRIC VEHICLES
+        {CHOOSE_FROM_POPULAR_ELECTRIC_VEHICLES}
       </Typography>
       <Divider className="dividerWidth" />
 
       {/* electric vehicle card list of electric vehicles */}
       <div className="productDiv">
-        {vehicleArr.map((item, index) => {
-          return <EVehicleCard key={index} item={item} />;
+        {productsData.map((item, index) => {
+          if (
+            item.sub_category_name == "Electric Moped lite" ||
+            item.sub_category_name == "tata electro Rickshaw"
+          ) {
+          } else {
+            return <EVehicleCard key={index} item={item} />;
+          }
         })}
       </div>
     </Box>

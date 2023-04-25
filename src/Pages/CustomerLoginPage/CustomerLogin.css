@@ -1,0 +1,42 @@
+.customerLoginMainDiv {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.customerLoginMainDiv .customerLogin_signupDiv {
+  padding: 2% 5%;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.customerLoginMainDiv .customerLogin_signupDiv .typoTitle {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.customerLogin_signupDiv .login_registerBox {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.customerLogin_signupDiv .login_registerBox .loginDiv {
+  width: 44%;
+  background-color: rgb(247, 247, 247);
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  padding: 2% 2%;
+}
+
+.customerLogin_signupDiv .login_registerBox .registerDiv {
+  width: 44%;
+  background-color: rgb(247, 247, 247);
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  padding: 2% 2%;
+}
